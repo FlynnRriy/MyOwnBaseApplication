@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--防止白屏-->
+    <style name="MyAppTheme" parent="AppTheme">
+        <!--三种-->
+        <!--1、设置一个图片-->
+        <!--<item name="android:windowBackground">@mipmap/startingwindow_bg</item>-->
+        <!--2、设置一种纯色-->
+        <!--<item name="android:windowBackground">@color/startcolor</item>-->
+        <!--3、设置绘制的layer-list-->
+        <item name="android:windowBackground">@drawable/start_layer_list</item>
+    </style>
+</resources>

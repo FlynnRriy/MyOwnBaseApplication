@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+
+    <!--启动页渐变色-->
+    <color name="colorStart">#EE4A65</color>
+    <color name="colorEnd">#FFE9B7</color>
+    <color name="colorback">#FAE8DA</color>
+    <!--viewpager小圆点-->
+    <color name="dot_on">#1059ea</color>
+    <color name="dot_off">#7c7c7c</color>
+
+    <!--白色按钮的边框颜色-->
+    <color name="txt_normal_white_btn">#3674f6</color>
+
+</resources>
