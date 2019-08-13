@@ -23,6 +23,11 @@ public class LoginActivity extends BaseMvpActivity<MyContract.Login_Presenter> i
     }
 
     @Override
+    public void TokenError() {
+
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

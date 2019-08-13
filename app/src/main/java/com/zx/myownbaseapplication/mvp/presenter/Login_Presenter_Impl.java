@@ -33,10 +33,18 @@ public class Login_Presenter_Impl extends MyContract.Login_Presenter {
             @Override
             public void requestSuccess(Response response) {
                 String data = null;
+                int code =-1;
                 try {
                     data = response.body().string();
+                    code = response.code();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+                if (code == 401) {
+                    //跳转到登录页面
+                    mView.TokenError();//token失效！！！！！！！！！
+                    MyLog.d(TAG, "token失效");
+                    return;
                 }
 
                 MyLog.d(TAG, "Login接口通了data="+data);

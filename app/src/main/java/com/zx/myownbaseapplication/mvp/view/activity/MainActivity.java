@@ -22,6 +22,11 @@ public class MainActivity extends BaseMvpActivity {
     }
 
     @Override
+    public void TokenError() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }

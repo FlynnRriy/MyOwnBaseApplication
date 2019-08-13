@@ -27,6 +27,12 @@ public class LunchActivity extends BaseMvpActivity {
     @Override
     public void setPresenter() {
     }
+
+    @Override
+    public void TokenError() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );

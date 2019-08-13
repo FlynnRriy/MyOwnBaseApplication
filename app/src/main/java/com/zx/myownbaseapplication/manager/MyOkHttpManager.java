@@ -21,8 +21,9 @@ public class MyOkHttpManager {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static MyOkHttpManager mInstance;
     private OkHttpClient mOkHttpClient;
-    private static OkHttpClient mRegetClient;//申请失败时 ，重复申请的client
 
+
+    private static OkHttpClient mRegetClient;//申请失败时 ，重复申请的client
     public static int MAXLOADTIMES = 3;//重复申请次数
 
     private MyOkHttpManager() {
