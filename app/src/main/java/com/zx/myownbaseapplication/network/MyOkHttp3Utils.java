@@ -63,7 +63,7 @@ public class MyOkHttp3Utils {
             //同样okhttp3后也使用build设计模式
             mOkHttpClient = new OkHttpClient.Builder()
                     //添加拦截器
-                    .addInterceptor(new MyIntercepter())
+//                    .addInterceptor(new MyIntercepter())
                     //设置一个自动管理cookies的管理器
                     .cookieJar(new CookiesManager())
                     //添加网络连接器
@@ -78,57 +78,57 @@ public class MyOkHttp3Utils {
         }
     }
 
-    /**
-     * 拦截器
-     */
-    private class MyIntercepter implements Interceptor {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            Request request = chain.request();
-
-            if (!isNetworkReachable(MyApp.getInstance().getApplicationContext())) {
-//                updateHandler.sendEmptyMessage(300);
-                request = request.newBuilder()
-                        .cacheControl(CacheControl.FORCE_CACHE)//无网络时只从缓存中读取
-                        .build();
-            }
-            Request.Builder RequestBuilder = request.newBuilder();
-            Request build;
-            /*String token = "";
-            String phoneIMEI="";
-            int permissionGranted = PackageManager.PERMISSION_GRANTED;
-            if (activity.getPackageManager().checkPermission(Manifest.permission.READ_PHONE_STATE, activity.getPackageName()) == permissionGranted) {
-                phoneIMEI = SystemToolUtils.getPhoneIMEI(AppManager.topActivity());//设备唯一识别标识
-            }*/
-
-            build = RequestBuilder
-                    .removeHeader("User-Agent")
-                    .addHeader("User-Agent", getUserAgent())
-                    .addHeader("Authorization", "")
-                    .build();
-
-            Response response = chain.proceed(build);
-
-            HttpUrl url = response.request().url();
-            MyLog.d(TAG,"我的网址"+url);
-
-//            int code = response.code();
-            //对个别链接地址做处理（比如要对个别网络请求做特殊的拦截处理）
-//            System.out.println("我的网址"+url);
-//            updateHandler.sendEmptyMessage(code);
-//            if (code == 401) {
-//                //跳转到登录页面
-//                updateHandler.sendEmptyMessage(401);
-//            } else if (code == 402) {
-//                //跳转到开户审核中界面
-//                updateHandler.sendEmptyMessage(402);
-//            } else if (code == 403) {
-//                //跳转到开户界面
-//                updateHandler.sendEmptyMessage(403);
+//    /**
+//     * 拦截器
+//     */
+//    private class MyIntercepter implements Interceptor {
+//        @Override
+//        public Response intercept(Chain chain) throws IOException {
+//            Request request = chain.request();
+//
+//            if (!isNetworkReachable(MyApp.getInstance().getApplicationContext())) {
+////                updateHandler.sendEmptyMessage(300);
+//                request = request.newBuilder()
+//                        .cacheControl(CacheControl.FORCE_CACHE)//无网络时只从缓存中读取
+//                        .build();
 //            }
-            return response;
-        }
-    }
+//            Request.Builder RequestBuilder = request.newBuilder();
+//            Request build;
+//            /*String token = "";
+//            String phoneIMEI="";
+//            int permissionGranted = PackageManager.PERMISSION_GRANTED;
+//            if (activity.getPackageManager().checkPermission(Manifest.permission.READ_PHONE_STATE, activity.getPackageName()) == permissionGranted) {
+//                phoneIMEI = SystemToolUtils.getPhoneIMEI(AppManager.topActivity());//设备唯一识别标识
+//            }*/
+//
+//            build = RequestBuilder
+//                    .removeHeader("User-Agent")
+//                    .addHeader("User-Agent", getUserAgent())
+//                    .addHeader("Authorization", "")
+//                    .build();
+//
+//            Response response = chain.proceed(build);
+//
+//            HttpUrl url = response.request().url();
+//            MyLog.d(TAG,"我的网址"+url);
+//
+////            int code = response.code();
+//            //对个别链接地址做处理（比如要对个别网络请求做特殊的拦截处理）
+////            System.out.println("我的网址"+url);
+////            updateHandler.sendEmptyMessage(code);
+////            if (code == 401) {
+////                //跳转到登录页面
+////                updateHandler.sendEmptyMessage(401);
+////            } else if (code == 402) {
+////                //跳转到开户审核中界面
+////                updateHandler.sendEmptyMessage(402);
+////            } else if (code == 403) {
+////                //跳转到开户界面
+////                updateHandler.sendEmptyMessage(403);
+////            }
+//            return response;
+//        }
+//    }
 
     private static String getUserAgent() {
         String userAgent = "";

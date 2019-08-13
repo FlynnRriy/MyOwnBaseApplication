@@ -16,6 +16,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+
+/**
+ *
+ * 被废弃 被network里的MyOKHttp3Utils替代
+ *
+ *
+ * */
 public class MyOkHttpManager {
     private static final String TAG = "MyOkHttpManager";
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
