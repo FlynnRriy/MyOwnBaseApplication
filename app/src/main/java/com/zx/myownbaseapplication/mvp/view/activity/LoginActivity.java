@@ -3,6 +3,7 @@ package com.zx.myownbaseapplication.mvp.view.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.zx.myownbaseapplication.R;
 import com.zx.myownbaseapplication.base_mvp.BaseMvpActivity;
 import com.zx.myownbaseapplication.bean.UserBean;
 import com.zx.myownbaseapplication.mvp.contract.MyContract;
@@ -14,7 +15,7 @@ import org.json.JSONObject;
 public class LoginActivity extends BaseMvpActivity<MyContract.Login_Presenter> implements MyContract.I_Login_View {
     @Override
     protected int getlayoutId() {
-        return 0;
+        return R.layout.activity_login;
     }
 
     @Override

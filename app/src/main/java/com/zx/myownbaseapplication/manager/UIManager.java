@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import com.zx.myownbaseapplication.mvp.view.activity.LoginActivity;
 import com.zx.myownbaseapplication.mvp.view.activity.MainActivity;
 import com.zx.myownbaseapplication.mvp.view.activity.WelcomeActivity;
 
@@ -24,6 +25,12 @@ public class UIManager {
     //第一次启动，去欢迎页
     public  static Intent toWelcome(Context context){
         Intent intent = getIntent(context, WelcomeActivity.class);
+        startActivityNecessary(context, intent);
+        return intent;
+    }
+    //去登录页
+    public  static Intent toLogin(Context context){
+        Intent intent = getIntent(context, LoginActivity.class);
         startActivityNecessary(context, intent);
         return intent;
     }

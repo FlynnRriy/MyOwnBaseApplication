@@ -135,7 +135,7 @@ public class WelcomeActivity extends BaseMvpActivity {
         tv_welcome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIManager.toMain(WelcomeActivity.this);
+                UIManager.toLogin(WelcomeActivity.this);
             }
         });
     }
