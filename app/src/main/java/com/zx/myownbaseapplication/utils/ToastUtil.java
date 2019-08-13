@@ -1,6 +1,7 @@
 package com.zx.myownbaseapplication.utils;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.widget.Toast;
 import com.zx.myownbaseapplication.app.MyApp;
 
@@ -29,6 +30,20 @@ public class ToastUtil {
             //如果当前Toast没有消失， 直接显示内容，不需要重新设置
             toast.setText(text);
         }
+        toast.show();
+    }
+
+    //居中
+    public static void ShowCenterShortToast(Context context, String text){
+        if (toast == null) {
+            toast=Toast.makeText(context,null,Toast.LENGTH_SHORT);
+            toast.setText(text);
+        } else {
+            //如果当前Toast没有消失， 直接显示内容，不需要重新设置
+            toast.setText(text);
+        }
+
+        toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
 }

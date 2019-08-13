@@ -34,8 +34,10 @@
         android:layout_height="@dimen/y80"
         android:layout_marginTop="@dimen/y100"
         android:gravity="center"
-        android:text="确认"
+        android:text="@string/btn_ok"
         android:background="@drawable/shape_blue_border"
+        android:clickable="true"
+        android:focusable="true"
         />
 
 </LinearLayout>

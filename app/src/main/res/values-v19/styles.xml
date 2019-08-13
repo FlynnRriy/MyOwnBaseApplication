@@ -4,6 +4,8 @@
     <style name="MyAppTheme" parent="@style/AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
+        <!--防止白屏-->
+        <item name="android:windowBackground">@drawable/start_layer_list</item>
     </style>
 
 </resources>
