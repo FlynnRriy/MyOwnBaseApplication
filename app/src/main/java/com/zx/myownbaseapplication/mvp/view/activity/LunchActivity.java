@@ -54,6 +54,8 @@ public class LunchActivity extends BaseMvpActivity {
                         String firstlogin = spm.getSharedPreference("firstlogin","").toString().trim();
                         MyLog.d(TAG,"firstlogin = "+firstlogin);
                         if(null!=firstlogin && firstlogin.equals("true")){//不是第一次
+                            //这里应该用保存的账号密码去登陆
+
                             UIManager.toMain(LunchActivity.this);
                         }else{//是第一次
                             spm.put("firstlogin","true");

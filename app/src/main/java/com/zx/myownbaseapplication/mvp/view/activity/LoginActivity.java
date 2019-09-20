@@ -73,8 +73,8 @@ public class LoginActivity extends BaseMvpActivity<MyContract.Login_Presenter> i
                     spm.put("username",username);
 
                     state=0;
-
-                    UIManager.toMain(LoginActivity.this);//TODO 将来要改为登录接口
+                    ToastUtil.ShowCenterShortToast(LoginActivity.this,"登录中");
+                    mPresenter.login("");
                 }else if(state==0){//登陆中
                     ToastUtil.ShowCenterShortToast(LoginActivity.this,"登录中");
                 }
@@ -110,16 +110,18 @@ public class LoginActivity extends BaseMvpActivity<MyContract.Login_Presenter> i
 
     @Override
     public void loginSuccess(UserBean userBean) {
+        MyLog.d(TAG,"登陆成功");
         state=-1;
         //保存token
         SharedPreferencesManager spm = new SharedPreferencesManager(LoginActivity.this,"login");
         spm.put("token","xxxxx");
 
-        UIManager.toMain(LoginActivity.this);
+//        UIManager.toMain(LoginActivity.this);
     }
 
     @Override
     public void loginFailed(int i, String info) {
+        MyLog.d(TAG,"登陆失败");
         state=-1;
         ToastUtil.ShowCenterShortToast(LoginActivity.this,"登录失败");
     }

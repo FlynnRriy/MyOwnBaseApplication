@@ -28,8 +28,10 @@ public class Login_Presenter_Impl extends MyContract.Login_Presenter {
             return;
         }
         mView.showLoading();
-
-        mIModel.requestLogin(AppManifest.host + AppManifest.user_login, jsonString, new OnRequestResultListener() {
+//        //官方的一个示例的url
+//        String url = "http://publicobject.com/helloworld.txt";
+//        mIModel.requestLogin(AppManifest.host + AppManifest.user_login, jsonString, new OnRequestResultListener() {
+        mIModel.requestLogin("http://publicobject.com/helloworld.txt", jsonString, new OnRequestResultListener() {
             @Override
             public void requestSuccess(Response response) {
                 String data = null;
@@ -37,6 +39,12 @@ public class Login_Presenter_Impl extends MyContract.Login_Presenter {
                 try {
                     data = response.body().string();
                     code = response.code();
+                    //缓存相关log
+//                    MyLog.d(TAG, "testCache: response1 :"+data);
+//                    MyLog.d(TAG, "testCache: response1 cache :"+response.cacheResponse());
+//                    MyLog.d(TAG, "testCache: response1 network :"+response.networkResponse());
+                    response.body().close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -45,6 +53,10 @@ public class Login_Presenter_Impl extends MyContract.Login_Presenter {
                     mView.TokenError();//token失效！！！！！！！！！
                     MyLog.d(TAG, "token失效");
                     return;
+                }else if (response.code() != 504) {
+                    MyLog.d(TAG,"资源已经缓存了，可以直接使用");
+                } else {
+                    MyLog.d(TAG,"资源没有缓存，或者是缓存不符合条件了。");
                 }
 
                 MyLog.d(TAG, "Login接口通了data="+data);
@@ -88,6 +100,7 @@ public class Login_Presenter_Impl extends MyContract.Login_Presenter {
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
+                            MyLog.d(TAG,"requestLogin请求失败");
                             mView.hideLoading();
                             mView.loginFailed(AppManifest.ERROR_RESULT,"Exception e="+e.getMessage());
                         }

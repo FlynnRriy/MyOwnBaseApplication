@@ -136,6 +136,7 @@ public class WelcomeActivity extends BaseMvpActivity {
             @Override
             public void onClick(View v) {
                 UIManager.toLogin(WelcomeActivity.this);
+                WelcomeActivity.this.finish();
             }
         });
     }
