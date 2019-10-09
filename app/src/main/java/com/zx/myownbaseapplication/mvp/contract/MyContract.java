@@ -31,5 +31,18 @@ public interface MyContract {
         void loginSuccess(UserBean userBean);
         void loginFailed(int i, String info);
     }
-
+    //////用token验证登录///不保存密码，第二次后都用token来登录//////////
+    abstract class Token_Presenter extends BasePresenter<I_Token_Model, I_Token_View> {
+        //activity调用的方法
+        public abstract void refresh_token(String json);
+    }
+    interface I_Token_Model extends IBaseModel {
+        void requestToken(String host, String json, OnRequestResultListener onRequestResultListener);
+    }
+    interface I_Token_View extends IBaseView {
+        void showLoading();//去请求
+        void hideLoading();//拿到结果
+        void tokenSuccess(UserBean userBean);
+        void tokenFailed(int i, String info);
+    }
 }
