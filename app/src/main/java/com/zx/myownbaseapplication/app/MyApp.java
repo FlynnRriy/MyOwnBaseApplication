@@ -3,6 +3,7 @@ package com.zx.myownbaseapplication.app;
 import android.app.Activity;
 import android.app.Application;
 
+import com.zx.myownbaseapplication.manager.CrashManager;
 import com.zx.myownbaseapplication.utils.MyLog;
 
 import java.util.ArrayList;
@@ -23,6 +24,9 @@ public class MyApp extends Application {
         MyLog.d(TAG,"MyApp onCreate");
         super.onCreate();
 //        DBOperator.init(this);
+        //采集崩溃日志
+        CrashManager.getInstance(this);
+
         instance = this;
     }
 
