@@ -34,4 +34,12 @@ dependencies {
 //    compile 'com.squareup.okhttp3:okhttp:3.1.2'
 //    // Retrofit库
 //    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+
+
+    //DBFlow数据库框架
+    annotationProcessor 'com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow-core:4.2.4'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow:4.2.4'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow-sqlcipher:4.2.4'
+
 }

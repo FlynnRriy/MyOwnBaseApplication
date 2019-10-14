@@ -3,6 +3,8 @@ package com.zx.myownbaseapplication.app;
 import android.app.Activity;
 import android.app.Application;
 
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 import com.zx.myownbaseapplication.manager.CrashManager;
 import com.zx.myownbaseapplication.utils.MyLog;
 
@@ -23,7 +25,11 @@ public class MyApp extends Application {
     public void onCreate() {
         MyLog.d(TAG,"MyApp onCreate");
         super.onCreate();
-//        DBOperator.init(this);
+
+        //DBFlow
+        FlowManager.init(new FlowConfig.Builder(this).build());
+//      FlowManager.init(this);//这句也可以初始化
+
         //采集崩溃日志
         CrashManager.getInstance(this);
 
